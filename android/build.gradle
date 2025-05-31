@@ -7,7 +7,6 @@ buildscript {
         google()
         jcenter()
     }
-
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -24,27 +23,25 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
-// --------------------------------------------------------
-// Forzamos que TODAS las tareas de compilación de Kotlin
-// generen bytecode con jvmTarget = "1.8"
-// --------------------------------------------------------
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
-    kotlinOptions {
-        jvmTarget = "1.8"
+// ================================================
+// Forzamos a que Kotlin use un Toolchain de Java 8
+// ================================================
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(8))
     }
 }
 
 android {
     namespace "com.tfliteflutter.tflite_flutter_helper"
     compileSdkVersion 30
-    
-// 1) Forzar compilación de Java a 1.8
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    // 2) Hacer que Kotlin genere bytecode para JVM 1.8
+    // Esta sección en Groovy funciona para el plugin kotlin-android:
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -54,6 +51,14 @@ android {
     }
     defaultConfig {
         minSdkVersion 16
+    }
+}
+
+// Si, por alguna razón, todavía persistiera el compilado a 21,
+// reforzamos nuevamente en todas las tareas KotlinCompile:
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 
