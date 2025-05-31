@@ -1,6 +1,6 @@
-// build.gradle del módulo (tflite_flutter_helper_plus)
+// build.gradle del módulo (tflite_flutter_helper)
 
-group 'com.a5starcompany.tflite_flutter_helper_plus' // O 'com.tuempresa.tflite_flutter_helper_plus' si lo has forkeado y renombrado
+group 'com.a5starcompany.tflite_flutter_helper' // O 'com.tuempresa.tflite_flutter_helper' si lo has forkeado y renombrado
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -29,7 +29,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 31 // Considera usar la misma compileSdkVersion que tu app principal
-    namespace 'com.tuempresa.tflite_flutter_helper_plus' // Asegúrate que este namespace es único y correcto
+    namespace 'com.tuempresa.tflite_flutter_helper' // Asegúrate que este namespace es único y correcto
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
