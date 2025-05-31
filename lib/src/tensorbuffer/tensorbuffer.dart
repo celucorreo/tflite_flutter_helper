@@ -49,7 +49,7 @@ abstract class TensorBuffer {
   ///
   /// Throws [ArgumentError.notNull] if [shape] is null and
   /// [ArgumentError] is [shape] has non-positive elements.
-  static TensorBuffer createFixedSize(List<int> shape, TfLiteType dataType) {
+  static TensorBuffer createFixedSize(List<int> shape, int dataType) {
     switch (dataType) {
       case TfLiteType.kTfLiteFloat32:
         return TensorBufferFloat(shape);
