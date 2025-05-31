@@ -5,7 +5,7 @@ import 'package:tflite_flutter_helper/src/tensorbuffer/tensorbuffer.dart';
 
 /// Casts a [TensorBuffer] to a specified data type.
 class CastOp implements TensorOperator {
-  late TfLiteType _destinationType;
+  late int _destinationType;
 
   /// Constructs a CastOp.
   ///
