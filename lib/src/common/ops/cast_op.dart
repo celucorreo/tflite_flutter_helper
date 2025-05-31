@@ -15,12 +15,12 @@ class CastOp implements TensorOperator {
   /// When this Op is executed, if the original [TensorBuffer] is already in
   /// [destinationType], the original buffer will be directly returned.
   ///
-  /// Throws [ArgumentError] if [destinationType] is neither [TfLiteType.float32]
-  /// nor [TfLiteType.uint8].
-  CastOp(TfLiteType destinationType) {
+  /// Throws [ArgumentError] if [destinationType] is neither [TfLiteType.kTfLiteFloat32]
+  /// nor [TfLiteType.kTfLiteUInt8].
+  CastOp(int destinationType) {
     SupportPreconditions.checkArgument(
-        destinationType == TfLiteType.uint8 ||
-            destinationType == TfLiteType.float32,
+        destinationType == TfLiteType.kTfLiteUInt8 ||
+            destinationType == TfLiteType.kTfLiteFloat32,
         errorMessage: "Destination Type " +
             destinationType.toString() +
             " is not supported");
