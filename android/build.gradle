@@ -24,6 +24,16 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
+// --------------------------------------------------------
+// Forzamos que TODAS las tareas de compilación de Kotlin
+// generen bytecode con jvmTarget = "1.8"
+// --------------------------------------------------------
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
 android {
     namespace "com.tfliteflutter.tflite_flutter_helper"
     compileSdkVersion 30
