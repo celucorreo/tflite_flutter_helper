@@ -125,9 +125,9 @@ class NormalizeOp implements TensorOperator {
     }
     TensorBuffer output;
     if (input.isDynamic) {
-      output = TensorBuffer.createDynamic(TfLiteType.float32);
+      output = TensorBuffer.createDynamic(TfLiteType.kTfLiteFloat32);
     } else {
-      output = TensorBuffer.createFixedSize(shape, TfLiteType.float32);
+      output = TensorBuffer.createFixedSize(shape, TfLiteType.kTfLiteFloat32);
     }
     output.loadList(values, shape: shape);
     return output;
