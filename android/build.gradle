@@ -1,5 +1,5 @@
 // build.gradle del módulo (tflite_flutter_helper)
-
+pepito
 group 'com.a5starcompany.tflite_flutter_helper' // O 'com.tuempresa.tflite_flutter_helper' si lo has forkeado y renombrado
 version '1.0-SNAPSHOT'
 
