@@ -83,7 +83,7 @@ abstract class TensorBuffer {
   /// Creates a [TensorBuffer] deep-copying data from another, with specified [TfLiteType].
   ///
   /// Throws [ArgumentError.notNull] if [buffer] is null.
-  static TensorBuffer createFrom(TensorBuffer buffer, TfLiteType dataType) {
+  static TensorBuffer createFrom(TensorBuffer buffer, int dataType) {
     SupportPreconditions.checkNotNull(buffer,
         message: "Cannot create a buffer from null");
     TensorBuffer result;
