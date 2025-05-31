@@ -1,15 +1,17 @@
-group 'com.a5starcompany.tflite_flutter_helper_plus'
+// build.gradle del módulo (tflite_flutter_helper_plus)
+
+group 'com.a5starcompany.tflite_flutter_helper_plus' // O 'com.tuempresa.tflite_flutter_helper_plus' si lo has forkeado y renombrado
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.7.10'
+    ext.kotlin_version = '1.7.10' // Considera actualizar esta versión si es posible
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.2.0'
+        classpath 'com.android.tools.build:gradle:7.2.0' // Asegúrate que esta versión es compatible con la de tu proyecto Flutter
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -26,8 +28,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 31
-    namespace 'com.tuempresa.tflite_flutter_helper_plus'
+    compileSdkVersion 31 // Considera usar la misma compileSdkVersion que tu app principal
+    namespace 'com.tuempresa.tflite_flutter_helper_plus' // Asegúrate que este namespace es único y correcto
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -35,7 +37,12 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '1.8' // Puedes mantener esto por retrocompatibilidad, pero la toolchain es más efectiva
+    }
+
+    // AÑADE ESTO:
+    kotlin {
+        jvmToolchain(8) // Esto le dice a Kotlin que use un JDK compatible con Java 8
     }
 
     sourceSets {
@@ -43,8 +50,13 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 16 // Considera subir esto si tu app principal lo requiere (e.g., 21)
     }
 }
+
 dependencies {
+    // ... tus dependencias si las tienes ...
+    // Por ejemplo, si el helper usa la librería TFLite directamente:
+    // implementation 'org.tensorflow:tensorflow-lite:2.9.0' // Reemplaza con la versión que necesites
+    // implementation 'org.tensorflow:tensorflow-lite-support:0.4.0' // Reemplaza con la versión que necesites
 }
