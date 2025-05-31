@@ -68,7 +68,7 @@ abstract class TensorBuffer {
   ///
   /// Dynamic TensorBuffers will reallocate memory when loading arrays or data buffers of
   /// different buffer sizes.
-  static TensorBuffer createDynamic(TfLiteType dataType) {
+  static TensorBuffer createDynamic(int dataType) {
     switch (dataType) {
       case TfLiteType.kTfLiteFloat32:
         return TensorBufferFloat.dynamic();
