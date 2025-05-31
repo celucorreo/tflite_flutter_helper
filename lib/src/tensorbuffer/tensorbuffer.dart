@@ -51,9 +51,9 @@ abstract class TensorBuffer {
   /// [ArgumentError] is [shape] has non-positive elements.
   static TensorBuffer createFixedSize(List<int> shape, TfLiteType dataType) {
     switch (dataType) {
-      case TfLiteType.float32:
+      case TfLiteType.kTfLiteFloat32:
         return TensorBufferFloat(shape);
-      case TfLiteType.uint8:
+      case TfLiteType.kTfLiteUInt8:
         return TensorBufferUint8(shape);
       default:
         throw ArgumentError(
@@ -70,9 +70,9 @@ abstract class TensorBuffer {
   /// different buffer sizes.
   static TensorBuffer createDynamic(TfLiteType dataType) {
     switch (dataType) {
-      case TfLiteType.float32:
+      case TfLiteType.kTfLiteFloat32:
         return TensorBufferFloat.dynamic();
-      case TfLiteType.uint8:
+      case TfLiteType.kTfLiteUInt8:
         return TensorBufferUint8.dynamic();
       default:
         throw ArgumentError(
@@ -95,8 +95,8 @@ abstract class TensorBuffer {
     // The only scenario we need float array is FLOAT32->FLOAT32, or we can always use INT as
     // intermediate container.
     // The assumption is not true when we support other data types.
-    if (buffer.getDataType() == TfLiteType.float32 &&
-        dataType == TfLiteType.float32) {
+    if (buffer.getDataType() == TfLiteType.kTfLiteFloat32 &&
+        dataType == TfLiteType.kTfLiteFloat32) {
       List<double> data = buffer.getDoubleList();
       result.loadList(data, shape: buffer.shape);
     } else {
