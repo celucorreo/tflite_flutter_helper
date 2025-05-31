@@ -75,12 +75,11 @@ class TensorAudio {
     ByteBuffer byteBuffer = buffer.buffer;
     TensorBuffer tensorBuffer =
     // TODO: Confirm Shape
-    TensorBuffer.createFixedSize(
+    TensorBufferFloat(
         [1, byteBuffer
             .asFloat32List()
             .length
-        ],
-        TfLiteType.kTfLiteFloat32);
+        ]);
     tensorBuffer.loadBuffer(byteBuffer);
     return tensorBuffer;
   }
