@@ -80,7 +80,7 @@ class TensorAudio {
             .asFloat32List()
             .length
         ],
-        TfLiteType.float32);
+        TfLiteType.kTfLiteFloat32);
     tensorBuffer.loadBuffer(byteBuffer);
     return tensorBuffer;
   }
