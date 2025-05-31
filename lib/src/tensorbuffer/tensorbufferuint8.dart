@@ -14,7 +14,7 @@ class TensorBufferUint8 extends TensorBuffer {
   TensorBufferUint8.dynamic() : super.dynamic();
 
   @override
-  TfLiteType getDataType() {
+  int getDataType() {
     return TfLiteType.kTfLiteUInt8;
   }
 
