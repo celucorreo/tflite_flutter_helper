@@ -15,7 +15,7 @@ class TensorBufferFloat extends TensorBuffer {
   TensorBufferFloat.dynamic() : super.dynamic();
 
   @override
-  TfLiteType getDataType() {
+  int getDataType() {
     return DATA_TYPE;
   }
 
