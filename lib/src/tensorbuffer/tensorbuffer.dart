@@ -119,7 +119,7 @@ abstract class TensorBuffer {
   List<int> getShape() => shape;
 
   /// Returns the data type of this buffer.
-  TfLiteType getDataType();
+  int getDataType();
 
   /// Returns a List<double> of the values stored in this buffer. If the buffer is of different types
   /// than double, the values will be converted into double. For example, values in
